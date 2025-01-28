@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: crashloopbackoff
+  labels:
+    app: crashloopbackoff
+spec:
+  containers:
+  - name: app
+    image: busybox
+    command: ["sh", "-c", "echo CrashLoop; exit 1"]

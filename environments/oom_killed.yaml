@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: oomkilled
+  labels:
+    app: oomkilled
+spec:
+  containers:
+  - name: app
+    image: busybox
+    command: ["sh", "-c", "echo Running; tail /dev/zero"]
+    resources:
+      limits:
+        memory: "16Mi"
+      requests:
+        memory: "8Mi"
+  restartPolicy: Never
